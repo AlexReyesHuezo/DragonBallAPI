@@ -3,12 +3,12 @@ using DragonBallAPI.Models;
 
 namespace DragonBallAPI.Data
 {
-    public class ApplicationDBContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         public DbSet<Character> Characters { get; set; }
         public DbSet<Transformation> Transformations { get; set; }
 
-        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
 
@@ -22,6 +22,8 @@ namespace DragonBallAPI.Data
                 .HasOne(t => t.Character)
                 .WithMany(c => c.Transformations)
                 .HasForeignKey(t => t.CharacterId);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
