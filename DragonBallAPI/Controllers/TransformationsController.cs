@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DragonBallAPI.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class TransformationsController : ControllerBase
     {
         private readonly ApplicationDbContext _db;

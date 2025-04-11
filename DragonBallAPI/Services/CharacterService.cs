@@ -45,7 +45,7 @@ namespace DragonBallAPI.Services
             }
 
             var client = _httpClientFactory.CreateClient("External Dragon Ball API");
-            var characterResponse = await client.GetFromJsonAsync<List<CharacterDto>>("https://dragonball-api.com/api/character");
+            var characterResponse = await client.GetFromJsonAsync<List<CharacterDto>>("https://dragonball-api.com/api/characters");
 
             if (characterResponse == null) return "Failed to fetch data from external API.";
 
